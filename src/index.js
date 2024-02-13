@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import "./index.scss"
 import reportWebVitals from './reportWebVitals';
-import { SnakeHead } from './Snake/ui';
+import {Snake} from './snake/ui';
 
-const dir = "right"
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <SnakeHead dirData={dir}/>
+      <Snake />      
   </React.StrictMode>
 );
 
