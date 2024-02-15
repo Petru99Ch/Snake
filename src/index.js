@@ -5,13 +5,20 @@ import reportWebVitals from './reportWebVitals';
 import {Snake} from './snake/ui';
 
 
-
+const snake = {
+  dummy: "Something",
+  children: [
+    {ClName:"head", dir:"up", coord:{top:100, left: 200}},
+    {ClName:"body", dir:"down", coord:{top:172, left: 200}},
+    {ClName:"tail", dir:"up", coord:{top:244, left: 200}},
+  ]
+}
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Snake />      
+      <Snake data={snake} />      
   </React.StrictMode>
 );
 

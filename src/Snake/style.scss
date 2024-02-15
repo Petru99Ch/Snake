@@ -1,65 +1,48 @@
 @import "../utils.scss";
 
 .snake{
-    .head{
-        @include box;
-        background-image: url(./snake.png);
-        background-position: -216px -72px;
-    }
-        .dir-{
-            &up{
-                .head{
-                    background-position: -216px -72px;
-                }
-                
-            }
-            &down{
-                .head{
-                    background-position: -216px -144px;
-                }
-                
-            }
-            &left{
-                .head{
-                    background-position: -72px -216px;
-                    
-                }
-                
-            }
-            &right{
-                .head{
-                    background-position: -144px -216px;
-                }
-                
-            }
-        }
+    @include component(
+        head,
+        (72px, 72px),
+        "./snake/snake.png",
+        (
+            "up": (-216px -72px),
+            "right": (-144px -216px),
+            "down": (-216px -144px),
+            "left": (-72px -216px),
+        )
+
+    );
+    
    
-    .tail{
-        @include box; 
-        background-image: url(./snake.png);
-        background-position: 0 -144px;
-    }
-        .dir-{
-            &up{
-                .tail{
-                    background-position: 0 -144px;
-                }
-            }
-            &down{
-                .tail{
-                    background-position: 0 -72px;
-                }
-            }
-            &left{
-                .tail{
-                    background-position: -144px 0;
-                }
-            }
-            &right{
-                .tail{
-                    background-position: -72px 0;
-                }
-            }
-        }
+
+
+    @include component(
+        tail,
+        (72px, 72px),
+        "./snake/snake.png",
+        (
+            "up": (0 -144px),
+            "right": (-72px 0),
+            "down": (0 -72px),
+            "left": (-144px 0),
+        )
+
+    );
+
+    @include component(
+        body,
+        (72px, 72px),
+        "./snake/snake.png",
+        (
+            "up": (0 -216px),
+            "right": (-216px 0 ),
+            "down": (0 -216px),
+            "left": (-216px 0),
+        )
+
+    );
+   
+    
     
 }

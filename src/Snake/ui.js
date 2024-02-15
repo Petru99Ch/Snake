@@ -13,7 +13,7 @@ const Component = ({ClName, children}) =>{
 
 
 const withCoordinate = (Component) =>{
-    return ({top, left, ...props})=>{
+    return ({coord: {top, left}, ...props})=>{
         return(
             <div style={{top:`${top}px`, left:`${left}px`, position: "absolute"}}>
                 <Component {...props}/>
@@ -47,11 +47,21 @@ const SnakeTail = withCoordinate(
         withDirection(Component)
     )
 
-const Snake = () =>{
+    const SnakeBody = withCoordinate(
+        withDirection(Component)
+    )
+
+const Snake = ({data:{children}}) =>{
     return(
         <Component ClName="snake">
-            <SnakeHead top={100} left={200} ClName ="head" dir="up" />
-            <SnakeTail top={172} left={200} ClName ="tail" dir="up" />
+          
+            {
+                children.map((childData,idx) => {
+                 return   (childData.ClName === "head" && <SnakeHead key={`k-${idx}`} {...childData}/>) ||
+                          (childData.ClName === "body" && <SnakeTail key={`k-${idx}`} {...childData}/>) ||
+                          (childData.ClName === "tail" && <SnakeTail key={`k-${idx}`} {...childData}/>) 
+                })
+            }
         </Component>
     )
 }

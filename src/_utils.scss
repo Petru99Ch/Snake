@@ -1,4 +1,18 @@
-@mixin box {
-    width: 72px;
-    height: 72px;
+
+@mixin component($Clname, $size, $background, $directions) {
+    .#{$Clname}{
+        width: nth($size, 1);
+        height: nth($size, 2);        
+        background-image: url(#{$background});
+    }
+    .dir-{
+        @each $dir, $positions in $directions {
+            &#{$dir}{            
+                .#{$Clname}{               
+                    background-position: nth($positions, 1) nth($positions, 2) ;                
+                }
+                
+            }
+        }
+    }
 }
