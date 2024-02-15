@@ -13,7 +13,7 @@ const Game = ({data: {children}})=>{
                             return <Snake key={`k-${idx}`} data={childData}/>
 
                         case "apple":
-                            return <Apple data={childData}/>
+                            return <Apple key={`k-${idx}`} data={childData}/>
                     }
                         
                     
