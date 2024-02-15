@@ -1,10 +1,10 @@
-@import "../utils.scss";
+@import "../utils/utils.scss";
 
 .snake{
     @include component(
         head,
         (72px, 72px),
-        "./snake/snake.png",
+        "../utils/map.png",
         (
             "up": (-216px -72px),
             "right": (-144px -216px),
@@ -20,7 +20,7 @@
     @include component(
         tail,
         (72px, 72px),
-        "./snake/snake.png",
+        "../utils/map.png",
         (
             "up": (0 -144px),
             "right": (-72px 0),
@@ -33,7 +33,7 @@
     @include component(
         body,
         (72px, 72px),
-        "./snake/snake.png",
+        "../utils/map.png",
         (
             "up": (0 -216px),
             "right": (-216px 0 ),

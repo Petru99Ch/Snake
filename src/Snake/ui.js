@@ -1,39 +1,11 @@
 
 import "./style.scss"
+import {Component} from "../utils/utils"
+import {withDirection} from "../utils/utils"
+import {withCoordinate} from "../utils/utils"
 
 
 
-const Component = ({ClName, children}) =>{
-    return(
-        <div className={ClName}>
-            {children}
-        </div>
-    )
-}
-
-
-const withCoordinate = (Component) =>{
-    return ({coord: {top, left}, ...props})=>{
-        return(
-            <div style={{top:`${top}px`, left:`${left}px`, position: "absolute"}}>
-                <Component {...props}/>
-            </div>
-        )
-        
-
-    }
-}
-
-
-const withDirection = (Component) =>{
-    return({dir, ...props}) =>{
-        return(
-            <div className={`dir-${dir}`}>
-                <Component {...props}/>
-            </div>
-        )
-    }
-}
 
 
 
@@ -58,7 +30,7 @@ const Snake = ({data:{children}}) =>{
             {
                 children.map((childData,idx) => {
                  return   (childData.ClName === "head" && <SnakeHead key={`k-${idx}`} {...childData}/>) ||
-                          (childData.ClName === "body" && <SnakeTail key={`k-${idx}`} {...childData}/>) ||
+                          (childData.ClName === "body" && <SnakeBody key={`k-${idx}`} {...childData}/>) ||
                           (childData.ClName === "tail" && <SnakeTail key={`k-${idx}`} {...childData}/>) 
                 })
             }

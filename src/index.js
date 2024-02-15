@@ -2,15 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./index.scss"
 import reportWebVitals from './reportWebVitals';
-import {Snake} from './snake/ui';
+import {Game} from './game/ui';
 
 
-const snake = {
-  dummy: "Something",
+const game = {
+  score:0,
+  state: "started",
+
   children: [
-    {ClName:"head", dir:"up", coord:{top:100, left: 200}},
-    {ClName:"body", dir:"down", coord:{top:172, left: 200}},
-    {ClName:"tail", dir:"up", coord:{top:244, left: 200}},
+
+    {name: "snake",
+
+      children: [
+        {ClName:"head", dir:"up", coord:{top:100, left: 200}},
+        {ClName:"body", dir:"down", coord:{top:172, left: 200}},
+        {ClName:"tail", dir:"up", coord:{top:244, left: 200}},
+      ]
+
+    },
+
+    {
+      name: "apple",
+      id:"apple",
+      coord: { top: 300, left : 400}
+    }
+    
   ]
 }
 
@@ -18,7 +34,7 @@ const snake = {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Snake data={snake} />      
+      <Game data={game} />      
   </React.StrictMode>
 );
 
