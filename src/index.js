@@ -15,7 +15,7 @@ const game = {
 
       children: [
         {ClName:"head", dir:"up", coord:{top:100, left: 200}},
-        {ClName:"body", dir:"down", coord:{top:172, left: 200}},
+        {ClName:"body", dir:"up", coord:{top:172, left: 200}},
         {ClName:"tail", dir:"up", coord:{top:244, left: 200}},
       ]
 
